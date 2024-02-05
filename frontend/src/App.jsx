@@ -1,30 +1,30 @@
 import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-// // import { ethers } from "ethers"
-// import { useConnect, } from 'wagmi'
-// import { metaMask } from "wagmi/connectors";
-// import { useAccount, useReadContract, useSwitchChain, useWriteContract } from "wagmi";
-// import { contractAddress } from "@/config/contractAddress"
-// import abi from "./config/abi.json"
+// import { ethers } from "ethers"
+import { useConnect, } from 'wagmi'
+import { metaMask } from "wagmi/connectors";
+import { useAccount, useReadContract, useSwitchChain, useWriteContract } from "wagmi";
+import { contractAddress } from "@/config/contractAddress"
+import abi from "./config/abi.json"
 
 
 export default function Homepage() {
-  // const CHAINID = 11155111
-  // const { connect } = useConnect()
-  // const { switchChain, isError: errorSwitching } = useSwitchChain()
-  // const { writeContract, isPending, isError, error, isSuccess } = useWriteContract()
-  // const { isConnected, address, chain } = useAccount()
+  const CHAINID = 11155111
+  const { connect } = useConnect()
+  const { switchChain, isError: errorSwitching } = useSwitchChain()
+  const { writeContract, isPending, isError, error, isSuccess } = useWriteContract()
+  const { isConnected, address, chain } = useAccount()
 
 
-  // const { data } = useReadContract({
-  //   address: contractAddress,
-  //   abi: abi,
-  //   functionName: "getEntityDetails",
-  //   query: {
-  //     refetchInterval: 1000,
-  //     retry: true
-  //   }
-  // });
+  const { data } = useReadContract({
+    address: contractAddress,
+    abi: abi,
+    functionName: "getEntityDetails",
+    query: {
+      refetchInterval: 1000,
+      retry: true
+    }
+  });
 
   return (
     <section className="w-full py-6 md:pt-8 lg:pt-12">
@@ -47,9 +47,9 @@ export default function Homepage() {
           </Button>
 
           <Button className="text-sm font-bold hover:text-[#272e3f] hover:bg-[#e3e3e5]" href="#"
-          // onClick={() => {
-          //   connect({ connector: metaMask(), chainId: CHAINID });
-          // }}
+            onClick={() => {
+              connect({ connector: metaMask(), chainId: CHAINID });
+            }}
           >
             Connect Wallet
           </Button>
