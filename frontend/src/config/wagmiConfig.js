@@ -3,7 +3,7 @@ import { mainnet, sepolia } from 'wagmi/chains'
 import { injected, metaMask, safe, walletConnect } from "wagmi/connectors";
 
 // const projectId = "<WALLETCONNECT_PROJECT_ID>";
-const projectId = import.meta.env.WALLECT_CONNECT_PROJECT_ID;
+const projectId = import.meta.env.VITE_REACT_APP_WALLECT_CONNECT_PROJECT_ID;
 
 export const config = createConfig({
     chains: [mainnet, sepolia],
