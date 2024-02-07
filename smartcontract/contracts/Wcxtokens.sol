@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+
 contract WCXNFT {
-    string public name = 'WCXGeneralElections';
-    string public symbol = 'WCX';
-    uint8 public decimals = 10;
+    string private name = 'WCXGeneralElections';
+    string private symbol = 'WCX';
+    uint8 private decimals = 10;
     
 
     uint256 private totalTokens = 50;
@@ -21,17 +22,17 @@ constructor(){
     balances[owner] = totalTokens;
 }
 
-    function totalSupply() public view returns (uint256) {
+    function totalSupply() private  view returns (uint256) {
         return totalTokens;
     }
 
-    function balanceOf(address _owner) public view returns (uint256) {
+    function balanceOf(address _owner) private view returns (uint256) {
 
         return balances[_owner];
     }
 
 
-    function transferFrom( address to) onlyOwner public {       
+    function transferToken( address to) onlyOwner public  {       
         balances[owner] -= 1;
         balances[to] += 1;
 

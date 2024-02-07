@@ -12,5 +12,5 @@ npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
 
-token contaract adddress = 0x446C0bf5e9122328f0EE593fF92c9b110789ad21
-election wallets = 0x6Ae9d5f48fE4dEaAC6564FAFd35062D35eF8330F
+token contaract adddress = 0x827AB0299aCf4f5B548f8686D991c40bda0B5A1E
+election wallets = 0x7240a7065f6a1169e44b9DF00641946ACA0Aa0F7
