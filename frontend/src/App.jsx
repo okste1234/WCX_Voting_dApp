@@ -20,6 +20,7 @@ export default function Homepage() {
   const { isConnected, address, chain } = useAccount()
   const [networkDialog, setNetworkDialog] = useState(false);
   const [notReg, setNotReg] = useState(true)
+  const [winner, setWinner] = useState(false)
 
 
   if (isError) {
@@ -89,7 +90,6 @@ export default function Homepage() {
     }
   }, [chain, isConnected])
 
-
   return (
     <>
       <Popup closeOnDocumentClick={false} open={networkDialog} closeOnEscape={false}>
@@ -114,6 +114,19 @@ export default function Homepage() {
           </div>
         </div>
       </Popup>
+
+      <Popup closeOnDocumentClick={true} open={winner} closeOnEscape={true}>
+        <div className="flex items-center justify-center">
+          <div className="md:w-[calc(100vw/4)] w-full">
+            <div className="flex w-full items-center justify-center">
+              <div className="w-full bg-white p-8 rounded-3xl  border-[1.563px] border-[#383838]">
+                <h1 className="font-[800] text-4xl text-center">Winner is: <br />{data}!!!</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Popup>
+
       <section className="w-full py-6 md:pt-8 lg:pt-12">
         <header className="flex h-20 w-full shrink-0 px-4 md:px-6 justify-between">
           <div>
@@ -253,11 +266,13 @@ export default function Homepage() {
             </div>
           </section>
           <section className="w-full bg-gray-100 dark:bg-gray-800">
-            <div className="text-center py-14 md:py-16 lg:py-24 text-lg">
-              <Button className="tracking-widest font-semibold p-4">See Winner</Button>
-              {/* <h4>Winner is:{data}</h4> */}
+            <div className="text-center py-14 lg:py-16 text-lg">
+              <Button
+                onClick={() => setWinner(!winner)}
+                className="tracking-widest font-semibold p-4">See Winner
+              </Button>
             </div>
-            <div className="py-7 md:py-12 lg:py-16">
+            <div className="py-7 md:py-12 lg:py-20">
               <div className="container px-4 md:px-6">
                 <h2 className="text-3xl pb-4 font-bold tracking-tighter md:text-4xl/tight">Current Vote Counts</h2>
                 <div className="mx-auto grid max-w-5xl divide-y divide-border rounded-lg border border-gray-200 md:grid-cols-3 md:divide-x md:divide-y-0 dark:border-gray-800">
