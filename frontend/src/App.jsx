@@ -74,10 +74,10 @@ export default function Homepage() {
     address: contractAddress,
     abi: abi,
     functionName: "getWinner",
-    // query: {
-    //   refetchInterval: 1000,
-    //   retry: true
-    // }
+    query: {
+      refetchInterval: 1000,
+      retry: true
+    }
   });
 
   console.log(data)
